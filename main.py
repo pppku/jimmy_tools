@@ -41,6 +41,8 @@ def process_mos(args):
         exit()
 
     for setting_name in setting_name_list:
+        if setting_name[0] == ".":
+            continue
         # load wav file name
         wav_file_name_list = os.listdir(args.input_file_path + "/" + setting_name)
         wav_file_name_list = list(filter(file_filter, wav_file_name_list))
@@ -90,6 +92,10 @@ def process_mos(args):
 def process_preference(args):
 
     setting_name_list = os.listdir(args.input_file_path)
+    # remove bad file (e.g. .DS_Store)
+    for setting_name in setting_name_list:
+        if setting_name[0] == '.':
+            setting_name_list.remove(setting_name)
 
     if len(setting_name_list) == 0:
         print("Input directory is empty")
@@ -177,7 +183,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_file_path", type=str, help="input file directory")
     parser.add_argument("--output_file_path", type=str, help="output file directory")
     parser.add_argument("--option", type=str, default="mos", help="preference or mos")
-    parser.add_argument("--top_number", type=int, default=3, help="How many random wav you need")
+    parser.add_argument("--top_number", type=int, default=10, help="How many random wav you need")
     parser.add_argument("--seed", type=int, default=777, help="Random seed")
     args = parser.parse_args()
     process(args)
