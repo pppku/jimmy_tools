@@ -1,4 +1,7 @@
 # jimmy_tools
-some useful tools writed by jimmy 
+Some useful tools writed by jimmy 
 
 ## random_wav
+
+## raw2wav
+Change vidio's format from raw to wav.
