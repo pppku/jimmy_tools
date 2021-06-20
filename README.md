@@ -5,3 +5,6 @@ Some useful tools writed by jimmy
 
 ## raw2wav
 Change vidio's format from raw to wav.
+
+## split_KiSing_lab
+Segment KiSing lab as same as Kising wav
